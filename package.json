@@ -1,0 +1,22 @@
+{
+  "name": "web3wallet",
+  "version": "0.0.1",
+  "description": "",
+  "directories": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "adal-node": "^0.2.2",
+    "azure-keyvault": "^3.0.5",
+    "bip39": "^3.0.4",
+    "bluebird": "^3.7.2",
+    "dotenv": "^9.0.2",
+    "ethers": "^5.1.4",
+    "express": "^4.17.1",
+    "install": "^0.13.0",
+    "npm": "^7.13.0",
+    "redis": "^3.1.2"
+  }
+}
