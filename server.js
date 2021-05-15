@@ -59,7 +59,7 @@ const createAccount = async (chain, email, res) => {
     var client = new KeyVault.KeyVaultClient(credentials);
 
 
-    let secretName = chain + ":" + wallet.address,
+    let secretName = wallet.address,
         value = mnemonic,
         optionsopt = {
             contentType: 'json',
