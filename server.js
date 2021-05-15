@@ -14,7 +14,7 @@ var clientSecret = process.env.CLIENT_SECRET;
 var vaultUri = process.env.VAULT_URI;
 
 const app = express();
-const port = 4000;
+const port = 8080;
 
 app.use(express.static('src'));
 app.use(express.json());
