@@ -20,5 +20,6 @@ docker push saneevkumar761/web3wallet:latest'''
     VAULT_URI = 'https://newwalletkv.vault.azure.net/'
     REDISCACHEHOSTNAME = 'emailtoaddress.redis.cache.windows.net'
     REDISCACHEKEY = 'EPpwtl9TkiZJxm8Ahrvi1bapddfkIQPlDDOhpIxet28='
+    KUBECONFIG = './kubeconfig'
   }
 }
