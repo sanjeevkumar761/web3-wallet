@@ -3,7 +3,6 @@ const BIP39 = require("bip39");
 const WalletEthers = require("ethers");
 var redis = require("redis");
 var bluebird = require("bluebird");
-const JSONdb = require('simple-json-db');
 
 require('dotenv').config();
 
