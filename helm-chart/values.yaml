@@ -83,3 +83,15 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+env:          
+ - name: "CLIENT_ID"
+   value: "7a0f5345-7b41-41ad-b68f-a3387579cf5f"
+ - name: "CLIENT_SECRET"
+   value: "I_r_0I3ou3R8cpEf-mYkQ-meKcpQJw6J.0"
+ - name: "VAULT_URI"
+   value: "https://newwalletkv.vault.azure.net/"
+ - name: "REDISCACHEHOSTNAME"
+   value: "emailtoaddress.redis.cache.windows.net"
+ - name: "REDISCACHEKEY"
+   value: "EPpwtl9TkiZJxm8Ahrvi1bapddfkIQPlDDOhpIxet28="
