@@ -11,7 +11,13 @@ docker push saneevkumar761/web3wallet:${BUILD_NUMBER}'''
         sh 'kubectl get all'
         sh '''helm list
 helm uninstall web3wallet
-helm install web3wallet ./helm-chart --set env.CLIENT_ID=${CLIENT_ID} --set env.CLIENT_SECRET=${CLIENT_SECRET} --set env.VAULT_URI=${VAULT_URI} --set env.REDISCACHEHOSTNAME=${REDISCACHEHOSTNAME} --set env.REDISCACHEKEY=${REDISCACHEKEY}'''
+helm install web3wallet ./helm-chart --set env.CLIENT_ID=${CLIENT_ID} --set env.CLIENT_SECRET=${CLIENT_SECRET} --set env.VAULT_URI=${VAULT_URI} --set env.REDISCACHEHOSTNAME=${REDISCACHEHOSTNAME} --set env.REDISCACHEKEY=${REDISCACHEKEY}
+
+
+export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services web3wallet-helm-chart)
+export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")
+ngrok http $NODE_IP:$NODE_PORT > /dev/null &
+curl http://127.0.0.1:4040/api/tunnels'''
       }
     }
 
