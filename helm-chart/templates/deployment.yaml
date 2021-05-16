@@ -34,9 +34,9 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-            {{- range .Values.env }}
-            - name: {{ .name }}
-              value: {{ .value }}
+            {{- range .Values.envmap }}
+             - name: {{ .name }}
+               value: {{ .value }}
             {{- end }}
           ports:
             - name: http

@@ -84,7 +84,7 @@ tolerations: []
 
 affinity: {}
 
-env:          
+envmap:          
  - name: "CLIENT_ID"
    value: "7a0f5345-7b41-41ad-b68f-a3387579cf5f"
  - name: "CLIENT_SECRET"
