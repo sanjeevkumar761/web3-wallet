@@ -9,7 +9,8 @@ docker tag web3wallet:${BUILD_NUMBER} saneevkumar761/web3wallet:${BUILD_NUMBER}
 docker login docker.io -u ${DOCKERHUB_USER} -p ${DOCKERHUB_PASSWORD}
 docker push saneevkumar761/web3wallet:${BUILD_NUMBER}'''
         sh 'kubectl get all'
-        sh 'helm list'
+        sh '''helm list
+helm install  helm-chart --generate-name'''
       }
     }
 
