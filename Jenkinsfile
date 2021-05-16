@@ -11,4 +11,8 @@ docker push saneevkumar761/web3wallet:latest'''
     }
 
   }
+  environment {
+    DOCKERHUB_USER = 'saneevkumar761'
+    DOCKERHUB_PASSWORD = 'Hdwj#10590'
+  }
 }
