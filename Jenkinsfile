@@ -4,10 +4,10 @@ pipeline {
     stage('deploy') {
       steps {
         sh '''ls ./kubeconfig
-docker build --tag web3wallet:latest .
-docker tag web3wallet:latest saneevkumar761/web3wallet:latest
+docker build --tag web3wallet:$(BUILD_ID) .
+docker tag web3wallet:$(BUILD_ID) saneevkumar761/web3wallet:latest
 docker login docker.io -u ${DOCKERHUB_USER} -p ${DOCKERHUB_PASSWORD}
-docker push saneevkumar761/web3wallet:latest'''
+docker push saneevkumar761/web3wallet:$(BUILD_ID)'''
         sh 'kubectl get all'
       }
     }
