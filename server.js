@@ -3,6 +3,7 @@ const BIP39 = require("bip39");
 const WalletEthers = require("ethers");
 var redis = require("redis");
 var bluebird = require("bluebird");
+const JSONdb = require('simple-json-db');
 
 require('dotenv').config();
 
@@ -12,6 +13,8 @@ var AuthenticationContext = require('adal-node').AuthenticationContext;
 var clientId = process.env.CLIENT_ID;
 var clientSecret = process.env.CLIENT_SECRET;
 var vaultUri = process.env.VAULT_URI;
+var redisCacheHostName = process.env.REDISCACHEHOSTNAME;
+var redisCacheKey = process.env.REDISCACHEKEY;
 
 const app = express();
 const port = 8080;
@@ -90,8 +93,8 @@ const loginWithEmail = async (email, res) => {
 async function setEmailwithAddress(email, chainAndAddress) {
 
     // Connect to the Azure Cache for Redis over the TLS port using the key.
-    var cacheConnection = redis.createClient(6380, process.env.REDISCACHEHOSTNAME, 
-        {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
+    var cacheConnection = redis.createClient(6380, redisCacheHostName, 
+        {auth_pass: redisCacheKey, tls: {servername: redisCacheHostName}});
         
     // Perform cache operations using the cache connection object...
 
