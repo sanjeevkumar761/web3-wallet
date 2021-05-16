@@ -10,7 +10,8 @@ docker login docker.io -u ${DOCKERHUB_USER} -p ${DOCKERHUB_PASSWORD}
 docker push saneevkumar761/web3wallet:${BUILD_NUMBER}'''
         sh 'kubectl get all'
         sh '''helm list
-helm install  helm-chart --generate-name --set env.CLIENT_ID=${CLIENT_ID} --set env.CLIENT_SECRET=${CLIENT_SECRET} --set env.VAULT_URI=${VAULT_URI} --set env.REDISCACHEHOSTNAME=${REDISCACHEHOSTNAME} --set env.REDISCACHEKEY=${REDISCACHEKEY}'''
+helm uninstall web3wallet
+helm install web3wallet ./helm-chart --set env.CLIENT_ID=${CLIENT_ID} --set env.CLIENT_SECRET=${CLIENT_SECRET} --set env.VAULT_URI=${VAULT_URI} --set env.REDISCACHEHOSTNAME=${REDISCACHEHOSTNAME} --set env.REDISCACHEKEY=${REDISCACHEKEY}'''
       }
     }
 
