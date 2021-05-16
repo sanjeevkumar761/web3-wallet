@@ -16,7 +16,7 @@ var redisCacheHostName = process.env.REDISCACHEHOSTNAME;
 var redisCacheKey = process.env.REDISCACHEKEY;
 
 const app = express();
-const port = 8080;
+const port = 4000;
 
 app.use(express.static('src'));
 app.use(express.json());
