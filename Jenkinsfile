@@ -14,6 +14,7 @@ helm uninstall web3wallet
 helm install web3wallet ./helm-chart --set env.CLIENT_ID=${CLIENT_ID} --set env.CLIENT_SECRET=${CLIENT_SECRET} --set env.VAULT_URI=${VAULT_URI} --set env.REDISCACHEHOSTNAME=${REDISCACHEHOSTNAME} --set env.REDISCACHEKEY=${REDISCACHEKEY}
 export serviceLBIP=$(kubectl get services web3test-helm-chart  --output jsonpath=\'{.status.loadBalancer.ingress[0].ip}\')
 npx localtunnel --port 4000 --local-host $serviceLBIP > localtunnel.log &
+sleep 5
 cat ./localtunnel.log
 '''
       }
