@@ -3,8 +3,7 @@ pipeline {
   stages {
     stage('deploy') {
       steps {
-        sh '''git checkout -b main
-docker build --tag web3wallet:latest .'''
+        sh 'docker build --tag web3wallet:latest .'
       }
     }
 
