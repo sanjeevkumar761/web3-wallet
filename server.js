@@ -3,6 +3,8 @@ const BIP39 = require("bip39");
 const WalletEthers = require("ethers");
 var redis = require("redis");
 var bluebird = require("bluebird");
+const swaggerUi = require('swagger-ui-express'),  //Docs https://levelup.gitconnected.com/how-to-add-swagger-ui-to-existing-node-js-and-express-js-project-2c8bad9364ce
+swaggerDocument = require('./swagger.json');
 
 require('dotenv').config();
 
@@ -21,6 +23,11 @@ const port = 4000;
 app.use(express.static('src'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(
+    '/api-docs',
+    swaggerUi.serve, 
+    swaggerUi.setup(swaggerDocument)
+);
 //console.log(process.env.RPC_URL);
 
 bluebird.promisifyAll(redis.RedisClient.prototype);
