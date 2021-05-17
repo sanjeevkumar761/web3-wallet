@@ -5,8 +5,8 @@
     "title": "Create User account in Ethereum with Email",
     "description": "Create user account in Ethereum using Email",
     "license": {
-      "name": "MIT",
-      "url": "https://opensource.org/licenses/MIT"
+      "name": "DefyOS",
+      "url": "http://www.defyos.com"
     }
   },
   "basePath": "/",
