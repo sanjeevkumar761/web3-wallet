@@ -4,10 +4,14 @@ pipeline {
     stage('deploy') {
       steps {
         sh '''ls ./kubeconfig
-docker build --tag web3wallet:${BUILD_NUMBER} .
-docker tag web3wallet:${BUILD_NUMBER} saneevkumar761/web3wallet:${BUILD_NUMBER}
+#docker build --tag web3wallet:${BUILD_NUMBER} .
+#docker tag web3wallet:${BUILD_NUMBER} saneevkumar761/web3wallet:${BUILD_NUMBER}
+#docker login docker.io -u ${DOCKERHUB_USER} -p ${DOCKERHUB_PASSWORD}
+#docker push saneevkumar761/web3wallet:${BUILD_NUMBER}
+docker build --tag web3wallet:latest .
+docker tag web3wallet:latest saneevkumar761/web3wallet:latest
 docker login docker.io -u ${DOCKERHUB_USER} -p ${DOCKERHUB_PASSWORD}
-docker push saneevkumar761/web3wallet:${BUILD_NUMBER}'''
+docker push saneevkumar761/web3wallet:latest'''
         sh 'kubectl get all'
         sh '''helm list
 helm uninstall web3wallet
