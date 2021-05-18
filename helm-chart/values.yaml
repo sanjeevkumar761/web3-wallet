@@ -6,9 +6,9 @@ replicaCount: 1
 
 image:
   repository: saneevkumar761/web3wallet
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "22"
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
